@@ -1,0 +1,99 @@
+﻿@model EnggBlog.DataLayer.Entities.ProductDownloadFile
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_AdminLayout.cshtml";
+}
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="col-md-12 col-sm-8 col-xs-8">
+
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>
+                    افزودن دسته ها
+                </h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <div class="form-group">
+                        <label asp-for="ProductId" class="control-label labelstyle">نام محصول</label>
+                        <div class="col-md-12">
+                            <select asp-for="ProductId" class="form-control" style="margin-right:10px;" asp-items="ViewBag.productId"></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <div class="col-md-12">
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AuthorName" class="control-label col-md-7"></label>
+                        <div class="col-md-12">
+                            <input asp-for="AuthorName" class="form-control" />
+                            <span asp-validation-for="AuthorName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TypeName" class="control-label col-md-7"></label>
+                        <div class="col-md-12">
+                            <input asp-for="TypeName" class="form-control" />
+                            <span asp-validation-for="TypeName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FileFormat" class="control-label col-md-7"></label>
+                        <div class="col-md-12">
+                            <input asp-for="FileFormat" class="form-control" />
+                            <span asp-validation-for="FileFormat" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="BlogLang" class="control-label col-md-7"></label>
+                        <div class="col-md-12">
+                            <input asp-for="BlogLang" class="form-control" />
+                            <span asp-validation-for="BlogLang" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SourceName" class="control-label col-md-7"></label>
+                        <div class="col-md-12">
+                            <input asp-for="SourceName" class="form-control" />
+                            <span asp-validation-for="SourceName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RouteAddress" class="control-label col-md-7"></label>
+                        <div class="col-md-12">
+                            <input asp-for="RouteAddress" class="form-control" />
+                            <span asp-validation-for="RouteAddress" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Volume" class="control-label col-md-7"></label>
+                        <div class="col-md-12">
+                            <input asp-for="Volume" class="form-control" />
+                            <span asp-validation-for="Volume" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <hr class="col-md-12" />
+                    <div class="item form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-5">
+                            <input type="submit" class="btn btn-success" value="ثبت" style="margin-right:10px;" />
+                            <a href="/AdminPanel/ProductDownloadFile/Index" class="btn-orange">بازگشت</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

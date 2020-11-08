@@ -1,0 +1,37 @@
+﻿@model EnggBlog.DataLayer.Entities.User
+
+@{
+    ViewData["Title"] = "SuccessRegister";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<div class="x_content">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>
+                ثبت نام جهت تهیه تبلیغات این سایت
+            </h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="col-sm-6">
+            <div class="x_content">
+                <div class="x_panel">
+                    <div class="alert alert-success text-center">
+                        <p>
+                            رزومه شما با موفقیت ثبت شد ، پیامی حاوی کد فعال سازی به موبایل شماره
+                            <span>
+                                "@Model.Mobile"
+                            </span>
+                            ارسال شد
+                            <br />
+                            جهت ادامه ثبت نام در
+                            <span>
+                                <a>@Html.ActionLink("فرم فعال سازی", "Active", "Account", null, new { @class = "font_nazanin_menu" })</a>
+                            </span>
+                            کد را وارد نمایید
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

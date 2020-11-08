@@ -1,0 +1,64 @@
+﻿@model IEnumerable<EnggBlog.DataLayer.Entities.ProductDownloadFile>
+
+@foreach (var item in Model)
+{
+    <div class="x_panel">
+        <div class="x_title">
+            <div class="col-md-7 col-sm-7 col-xs-12 form-group">
+                <h5 style="color:blue">
+                    <a href="/Home/UpdateDownloadFiles/@item.Id" target="_blank">
+                        <i class="fa fa-download"></i>&ensp;دانلود @item.TypeName @item.Name
+                    </a>                   
+                </h5>
+            </div>
+            @*<div class="col-md-5 col-sm-5 col-xs-12 form-group">
+                <h5 style="color:blue">
+                    @if (item.ProductPrice == 0)
+                    {
+                    <a href="/Home/UpdateDownloadFiles/@item.Id" target="_blank">                        
+                        <i class="fa fa-download"></i>&ensp; دانلود رایگان
+                    </a>
+                    }
+                    else
+                    {
+                    <a href="/Product/BuyProduct/@item.Id" target="_blank">
+                        <i class="fa fa-gift user-profile-icon"></i>&ensp; مبلغ دانلود : @item.ProductPrice تومان
+                    </a>
+                    }
+                </h5>
+                
+            </div>*@
+
+            <ul class="nav navbar-right panel_toolbox">
+                <li>
+                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <div class="row">
+                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                    <i class="fa fa-language user-profile-icon"></i>&ensp; زبان این @item.TypeName : @item.BlogLang
+                </div>
+                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                    <i class="fa fa-graduation-cap user-profile-icon"></i>&ensp; نویسندگان @item.TypeName : @item.AuthorName
+                </div>
+                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                    <i class="fa fa-institution user-profile-icon"></i>&ensp; منبع @item.TypeName از : @item.SourceName
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                    <i class="fa fa-eye user-profile-icon"></i>&ensp; تعداد دانلود تاکنون : @item.NumberDownload
+                </div>
+                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                    <i class="fa fa-suitcase user-profile-icon"></i>&ensp; حجم دانلود @item.TypeName : @item.Volume
+                </div>
+                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                    <i class="fa fa-file user-profile-icon"></i>&ensp; فرمت فایل @item.TypeName : @item.FileFormat
+                </div>
+            </div>
+        </div>
+    </div>
+}

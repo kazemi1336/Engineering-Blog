@@ -1,0 +1,52 @@
+﻿
+@using EnggBlog.Core.Interfaces
+@inject IUser UserService
+<div class="col-md-3 left_col hidden-print">
+    <div class="left_col scroll-view">
+        <div class="navbar nav_title" style="border: 0;">
+            <a href="/Home/Index" class="site_title"><i class="fa fa-home"></i> <span>Persiamahak</span></a>
+
+        </div>
+
+        <divfa class="clearfix"></divfa>
+
+        <!-- sidebar menu -->
+        <div id="sidebar-menu" class="main_menu_side  hidden-print main_menu">
+            <div class="menu_section">
+                <ul class="nav side-menu">
+
+                    <li>
+                        <a href="/AdminPanel/Admin/Index"><i class="fa fa-dashboard"></i> داشبورد</a>
+                    </li>
+                    <li>
+                        <a href="/AdminPanel/Menu/Index"><i class="fa fa-fw fa-list-ul"></i>منو</a>
+                    </li>
+                    <li>
+                        <a href="/AdminPanel/Product/Index"><i class="fa fa-book"></i> مدیریت کتابها</a>
+                    </li>
+                    <li>
+                        <a href="/AdminPanel/ProductDownloadFile/Index"><i class="fa fa-download"></i> مدیریت مسیر دانلود</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- /sidebar menu -->
+        <!-- /menu footer buttons -->
+        <div class="sidebar-footer hidden-small">
+            <a data-toggle="tooltip" href="/Home/Index" data-placement="top" title="صفحه اصلی">
+                <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="تمام صفحه" onclick="toggleFullScreen();">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="قفل" class="lock_btn">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="خروج" href="/Account/SignOut">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+            </a>
+        </div>
+        <!-- /menu footer buttons -->
+    </div>
+</div>

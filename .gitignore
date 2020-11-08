@@ -1,0 +1,8 @@
+.vs
+EnggBlog.Core/bin
+EnggBlog.Core/obj
+EnggBlog.DataLayer/bin
+EnggBlog.DataLayer/obj
+EnggBlog.Web/bin
+EnggBlog.Web/obj
+EnggBlog.Web/_help

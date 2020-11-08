@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+
+<html lang="fa">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>@ViewBag.Title</title>
+
+    <link href="~/lib/bootstrap/css/bootstrap-rtl.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="~/css/AccountStyle.css" rel="stylesheet" />
+    <!--Smart Footer_Style-->
+    <link href="/Content/css/FooterStyle.css" rel="stylesheet" />
+
+</head>
+<body>
+    <header>
+        <div class="header">
+            <a href="/" class="pull-right home">خانه</a>
+
+            <a href="#" class="pull-left headerIcon"><i class="fa fa-search"></i></a>
+
+            @{
+                if (User.Identity.IsAuthenticated)
+                {
+                    <div class="dropdown pull-left">
+
+                        <a href="#" class="pull-left headerIconLogin"><i class="fa fa-user-circle"></i></a>
+                        <a href="#" class="pull-left arrow-header"><i class="fas fa-sort-down"></i></a>
+
+                        <div class="submenu">
+                            <p class="welcome">خوش آمدید</p>
+                            <a href="/Account/Profile">پروفایل<i class="fas fa-caret-left" style="padding:5px; float:right"></i></a>
+                            <a href="/Account/SignOut" class="exit">خروج از سایت</a>
+                        </div>
+
+                    </div>
+                }
+                else
+                {
+                    <a href="#" class="pull-left headerIcon" onclick='ShowLogin()'><i class="fa fa-user-circle"></i></a>
+                }
+            }
+
+            <a href="#" class="pull-left headerIcon"><i class="far fa-envelope"></i></a>
+
+            <a href="#" class="pull-left headerIcon"><i class="fa fa-bell"></i></a>
+
+        </div>
+    </header>
+
+    <div>
+        @RenderBody()
+    </div>
+    <!--footer starts from here-->
+    <footer class="footer">
+        @*<div class="container bottom_border">*@
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <h5 class="headin5_amrc col_white_amrc pt2 font_nazanin_menu white-text">هدف سایت</h5>
+                    <!--headin5_amrc-->
+                    <p class="font_nazanin_menu white-text">با ثبت رزومه و با ارتقاء حساب کاربری تحت عنوان کارشناس فعال سایت در ارایه مطالب روز مهندسی با ما همکاری فرمایید</p>
+                    <p><i class="fa fa-location-arrow"></i> ایران </p>
+                    <p><i class="fa fa-phone"></i>  09133147223  </p>
+                    <p><i class="fa fa fa-envelope"></i> persiamahak@gmail.com </p>
+
+                </div>
+
+                <div class="col-lg-4 col-md-4  hidden-sm hidden-xs">
+                    <h5 class="headin5_amrc col_white_amrc pt2 font_nazanin_menu white-text">خدمات سایت</h5>
+                    <!--headin5_amrc-->
+                    <ul class="footer_ul_amrc">
+                        <li>@Html.ActionLink("ثبت رزومه مهندسی", "RegisterUsers", "Home", null, new { @class = "font_nazanin_menu white-text" })</li>
+                        <li>@Html.ActionLink("جستجوی کارشناسان مهندسی", "ShowUserResume", "Home", null, new { @class = "font_nazanin_menu white-text" })</li>
+                        <li>@Html.ActionLink("ویرایش رزومه کارشناسی", "EditProfile", "User", null, new { @class = "font_nazanin_menu white-text" })</li>
+                    </ul>
+
+
+                    <!--footer_ul_amrc ends here-->
+                </div>
+
+                <div class="col-lg-4 col-md-4 hidden-sm hidden-xs">
+                    <h5 class="headin5_amrc col_white_amrc pt2 font_nazanin_menu white-text">مطالب مهندسی</h5>
+                    <!--headin5_amrc-->
+                    <ul class="footer_ul_amrc">
+                        <li>@Html.ActionLink("جدیدترین مطالب مهندسی", "EnggKnowledge", "Home", null, new { @class = "font_nazanin_menu white-text" })</li>
+                        <li>@Html.ActionLink("پربیننده ترین مطالب مهندسی", "PopularProduct", "Home", null, new { @class = "font_nazanin_menu white-text" })</li>
+
+                    </ul>
+                    <!--footer_ul_amrc ends here-->
+                </div>
+            </div>
+            
+        @*</div>*@
+ 
+    </footer>
+    <!-- Footer -->
+
+
+
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header modalH">
+                    ورود به سایت
+                    <button type="button" class="close" style="color:white;" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="bodymodal" class="modal-body">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="~/lib/jQuery/jquery-1.10.2.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap-rtl.min.js"></script>
+
+
+    <script>
+        function ShowLogin() {
+            $.ajax({
+                url: "/Account/Login/",
+                type: "Get",
+                data: {}
+            }).done(function (result) {
+                $('#myModal').modal('show');
+                $('#myModalHeader').html('');
+                $('#bodymodal').html(result);
+            });
+        }
+    </script>
+
+
+</body>
+</html>

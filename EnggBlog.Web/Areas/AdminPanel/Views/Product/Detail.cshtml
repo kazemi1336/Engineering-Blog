@@ -1,0 +1,79 @@
+﻿@model EnggBlog.DataLayer.Entities.Product
+
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CatId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CatId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LatinName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LatinName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tags)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tags)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImgAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ImgAddress)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImgName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ImgName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Des)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Des)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RefreshDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RefreshDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberSeen)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NumberSeen)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

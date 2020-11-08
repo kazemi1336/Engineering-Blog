@@ -1,0 +1,18 @@
+﻿@{
+    Layout = null;
+
+}
+<form asp-action="Delete" style="color:black; padding-bottom:50px;">
+    <div asp-validation-summary="ModelOnly" class="text-center">
+
+    </div>
+    <div class="form-group">
+        <h3 class="text-center" style="color:black">
+            آیا از حذف اطمینان دارید؟
+        </h3>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn-orange pull-right" style="border:none" value="حذف شود" />
+        <a asp-action="Index" asp-controller="Product" class="btn-orange pull-left">خیر</a>
+    </div>
+</form>

@@ -1,0 +1,27 @@
+﻿
+@model IEnumerable<EnggBlog.DataLayer.Entities.Category>
+
+
+<ul class="nav side-menu">
+    @foreach (var item in Model.Where(c => c.ParentId == null))
+    {
+        <li>
+            <a><i class="fa fa-book"></i>@item.Name<span class="fa fa-chevron-down"></span></a>
+
+            @if (Model.Any(c => c.ParentId == item.Id))
+            {
+                <ul class="nav child_menu">
+                    @foreach (var sub in Model.Where(c => c.ParentId == item.Id))
+                    {
+                        <li>
+                            <a href="/Home?selectedCategory=@sub.Id">@sub.Name</a>
+                        </li>
+                    }
+                </ul>
+            }
+
+        </li>
+    }
+</ul>
+
+

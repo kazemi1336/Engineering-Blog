@@ -1,0 +1,51 @@
+﻿
+@model EnggBlog.DataLayer.Entities.Product
+
+@{
+    ViewData["Title"] = "DetailP";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>بسته مطالب @Model.Name</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="col-md-7 col-sm-12 col-xs-12">
+                    <div class="product-image">
+                        <img src="/Images/ImagesProduct/@Model.ImgName" alt="...">
+                    </div>
+                </div>
+                <div class="col-md-5 col-sm-12 col-xs-12">
+                    <h6><i class="fa fa-book"></i>&ensp; @Model.Name </h6>
+                    <h6><i class="fa fa-bookmark"></i>&ensp; @Model.LatinName </h6>
+                    <h6>
+                        <i class="fa fa-tags"></i>
+                        @foreach (string tags in Model.Tags.Split('-', StringSplitOptions.RemoveEmptyEntries))
+                        {
+                            <a href="/Home?filter=@tags" class="tag-list-item">@tags</a>
+                        }
+                    </h6>
+                    <h6><i class="fa fa-clock-o "></i>&ensp; @Model.RefreshDate</h6>
+                    <p>
+                        @Model.Des
+                    </p>
+                </div>
+            </div>
+            <div class="x_content">
+
+                @(await Component.InvokeAsync("DownloadFileComponent", Model.Id))
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

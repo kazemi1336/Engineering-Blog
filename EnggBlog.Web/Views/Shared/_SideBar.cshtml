@@ -1,0 +1,42 @@
+﻿
+@{
+    @model IEnumerable<EnggBlog.DataLayer.Entities.Category>
+}
+
+
+<div class="col-md-3 left_col hidden-print">
+    <div class="left_col scroll-view">
+        <div class="navbar nav_title" style="border: 0;">
+            <a href="/Home/Index" class="site_title"><i class="fa fa-home"></i> <span>Persiamahak</span></a>
+        </div>
+
+        <divfa class="clearfix"></divfa>
+
+        <!-- sidebar menu -->
+        <div id="sidebar-menu" class="main_menu_side  hidden-print main_menu">
+            <div class="menu_section">
+                <ul class="nav side-menu">
+                    @(await Component.InvokeAsync("MainMenuCompunent"))
+                </ul>
+            </div>
+
+        </div>
+        <!-- /sidebar menu -->
+        <!-- /menu footer buttons -->
+        <div class="sidebar-footer hidden-small">
+            <a data-toggle="tooltip" href="/Home/Index" data-placement="top" title="صفحه اصلی">
+                <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="تمام صفحه" onclick="toggleFullScreen();">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="قفل" class="lock_btn">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="خروج" href="/Account/SignOut/">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+            </a>
+        </div>
+        <!-- /menu footer buttons -->
+    </div>
+</div>

@@ -1,0 +1,51 @@
+﻿@model EnggBlog.DataLayer.Entities.Category
+
+@{
+    ViewData["Title"] = "افزودن دسته ها";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="col-md-12 col-sm-8 col-xs-8">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>
+                    افزودن دسته ها
+                </h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-8">
+                            <label asp-for="Name" class="control-label labelstyle"></label>
+                            <input asp-for="Name" class="form-control" style="margin-right:10px;" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-8">
+                            <label asp-for="ParentId" class="control-label labelstyle"></label>
+                            <select asp-for="Id" class="form-control" style="margin-right:10px;" asp-items="ViewBag.catId"></select>
+                        </div>
+                    </div>
+                    <hr class="col-md-12" />
+                    <div class="item form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-5">
+                            <input type="submit" class="btn btn-success" value="ثبت" style="margin-right:10px;" />
+
+                            <a href="/AdminPanel/Menu/Index" class="btn btn-warning">انصراف</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+

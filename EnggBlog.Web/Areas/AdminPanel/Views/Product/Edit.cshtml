@@ -1,0 +1,94 @@
+﻿@model EnggBlog.DataLayer.Entities.Product
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Img" />
+    <input type="hidden" asp-for="ImgName" />
+    <input type="hidden" asp-for="Id" />
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <div class="row">
+                        <div class="form-group">
+                            <label asp-for="CatId" class="control-label col-md-7">نام دسته</label>
+                            <div class="col-md-12">
+                                <select asp-for="CatId" class="form-control" style="margin-right:10px;" asp-items="ViewBag.catId"></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Name" class="control-label col-md-7"></label>
+                            <div class="col-md-12">
+                                <input asp-for="Name" class="form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="LatinName" class="control-label col-md-7"></label>
+                            <div class="col-md-12">
+                                <input asp-for="LatinName" class="form-control" />
+                                <span asp-validation-for="LatinName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <div class="row">
+                        <div class="form-group">
+                            <label asp-for="Img" class="control-label col-md-7"></label>
+                            <div class="col-md-7">
+                                <input type="file" asp-for="Img" style="margin-right:10px;" />
+                                <span asp-validation-for="Img" class="text-danger"></span>
+                                <img src="~/Images/ImagesProduct/@Model.ImgName" class="center-block" width="200" height="200" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_content">
+                <div class="row">
+                    <div class="form-group">
+                        <label asp-for="Des" class="control-label col-md-7"></label>
+                        <div class="col-md-12">
+                            <textarea asp-for="Des" class="form-control"></textarea>
+                            <span asp-validation-for="Des" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <hr class="col-md-12" />
+                    <div class="form-group">
+                        <label asp-for="Tags" class="control-label col-md-7"></label>
+                        <div class="col-md-12">
+                            <input asp-for="Tags" class="form-control" />
+                            <span asp-validation-for="Tags" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <hr class="col-md-12" />
+                    <div class="item form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-5">
+                            <input type="submit" class="btn btn-success" value="ثبت" style="margin-right:10px;" />
+                            <a href="/AdminPanel/Product/Index" class="btn btn-warning">انصراف</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+

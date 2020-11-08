@@ -1,0 +1,74 @@
+﻿@model EnggBlog.Core.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<div class="x_panel">
+    <div class="x_title text-center">
+        <h2 class="pull-left">
+            Login to purchase advertise
+        </h2>
+        @if (ViewBag.IsSuccess != null)
+        {
+            <script>
+                swal("موفق", "ورود با موفقیت انجام شد", "success");
+
+                // Your delay in milliseconds
+                var delay = 3000;
+                setTimeout(function () { window.location = "https://localhost:44349/"; }, delay);
+            </script>
+
+        }
+
+        @*@if (ViewBag.EditProfile == true)
+        {
+            <script>
+                swal("اطلاعات کاربری یا موفقیت به روز رسانی شد", "جهت بارگذارذی اطلاعات پروفایل دوباره لاگین کنید", "success");
+
+            </script>
+        }
+
+        @if (ViewBag.Permission == false)
+        {
+            <script>
+                swal("خطا دسترسی !", "شما مجوز دسترسی به این قسمت  را ندارید", "error");
+
+            </script>
+        }*@
+        <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+        <div class="row ">
+            <div class="col-lg-6  col-lg-offset-2 col-md-6  col-lg-offset-2">
+                <form asp-action="Login">
+                    <div asp-validation-summary="ModelOnly" class="text-danger "></div>
+                    <div class="form-group">
+                        <label asp-for="Mobile" class="control-label "></label>
+                        <input asp-for="Mobile" class="form-control " />
+                        <span asp-validation-for="Mobile" class="text-danger "></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password" class="control-label"></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="ورود به سایت" class="btn btn-block btn-primary" />
+                    </div>
+                    <a href="/Account/Forget/" class="pull-left textlogin">رمزم را فراموش کردم</a>
+                    <a href="/Account/Register/" class="pull-right textlogin">عضویت در پرشیا محک</a>
+                    <br />
+                </form>
+            </div>
+            <div class="col-lg-4 col-md-4 hidden-sm hidden-xs">
+                <img src="~/Images/Login.png" style="width:200px" alt="...">
+            </div>
+        </div>
+    </div>
+</div>
+
+
